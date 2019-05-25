@@ -12,29 +12,38 @@ public class PLayer2Controller : MonoBehaviour {
     public float MaxSpeed;
     public float Acceleration;
     public float Deceleration;
+    public float shotSpeed;
+    public float Shot2Release;
+    public float Shot3Release;
 
     private Rigidbody rb; 
 
     public bool grd;
 
     public GameObject shot;
+    public GameObject shot2;
+    public GameObject shot3;
     public GameObject pos;
 
     private float del;
     private bool bulletCheck;
+    float contPU;
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
         bulletCheck = false;
         del = 0;
+        upSpeed = 0;
         grd = true;
+        rb.freezeRotation = true;
+
 
     }
 
     void Update()
     {
-         rb.freezeRotation = true;
+         
 
         if (Input.GetKey(KeyCode.LeftArrow) && (speed < MaxSpeed))
         {
@@ -66,13 +75,11 @@ public class PLayer2Controller : MonoBehaviour {
             upSpeed = 8.5f;
             grd = false;
         }
+        
         if (grd == false)
         {
             upSpeed -= Gravity * Time.deltaTime;
-            if (upSpeed < -8.4f) {
-                grd = true;
-            }
-            
+
         }
         else {
             upSpeed = 0;
@@ -82,28 +89,53 @@ public class PLayer2Controller : MonoBehaviour {
 
         gameObject.transform.position = v;
 
-
-        Debug.Log(upSpeed);
-
-
-
-
         if (!bulletCheck)
         {
-            if (Input.GetKey(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.C))
             {
+
                 GameObject.Instantiate(shot, pos.transform.position, shot.transform.rotation);
                 bulletCheck = true;
+                contPU += Time.deltaTime;
             }
         }
-        else {
+        else
+        {
             del += Time.deltaTime;
         }
+        if(contPU != 0)
+        {
+            contPU += Time.deltaTime;
+        }
+        if (Input.GetKeyUp(KeyCode.C))
+        {
 
-        if (del > 0.3) {
+            if (contPU > Shot2Release && contPU < Shot3Release)
+            {
+
+                GameObject.Instantiate(shot2, pos.transform.position, shot2.transform.rotation);
+
+            }
+            else if (contPU > Shot3Release)
+            {
+
+                GameObject.Instantiate(shot3, pos.transform.position, shot3.transform.rotation);
+                
+            }
+            contPU = 0;
+        }
+
+        if (del > shotSpeed) {
             bulletCheck = false;
             del = 0;
         }
+
+    }
+
+    private void isGrounded()
+    {
+
+            grd = true;
 
     }
 }
