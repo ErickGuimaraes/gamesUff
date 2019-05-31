@@ -15,6 +15,7 @@ public class PLayer2Controller : MonoBehaviour {
     public float shotSpeed;
     public float Shot2Release;
     public float Shot3Release;
+    public float jumpSpeed;
 
     private Rigidbody rb; 
 
@@ -35,7 +36,7 @@ public class PLayer2Controller : MonoBehaviour {
         bulletCheck = false;
         del = 0;
         upSpeed = 0;
-        grd = true;
+        //grd = true;
         rb.freezeRotation = true;
 
 
@@ -43,7 +44,7 @@ public class PLayer2Controller : MonoBehaviour {
 
     void Update()
     {
-         
+       
 
         if (Input.GetKey(KeyCode.LeftArrow) && (speed < MaxSpeed))
         {
@@ -72,8 +73,8 @@ public class PLayer2Controller : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && (upSpeed == 0))
         {
-            upSpeed = 8.5f;
-            grd = false;
+            
+            isNotGrounded();
         }
         
         if (grd == false)
@@ -134,8 +135,14 @@ public class PLayer2Controller : MonoBehaviour {
 
     private void isGrounded()
     {
-
-            grd = true;
-
+        grd = true;
     }
+
+    private void isNotGrounded()
+    {
+        grd = false;
+        upSpeed = jumpSpeed;
+    }
+
+   
 }

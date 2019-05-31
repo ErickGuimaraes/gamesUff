@@ -15,10 +15,12 @@ public class FloorBehaviour : MonoBehaviour
             pl.SendMessage("isGrounded");
 
         }
+
     }
 
-    void OnCollisionEnter(Collision floor)
+    private void OnTriggerExit()
     {
-
+        pl.SendMessage("isNotGrounded");
     }
+
 }
