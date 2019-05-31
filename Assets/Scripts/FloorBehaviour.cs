@@ -7,20 +7,23 @@ public class FloorBehaviour : MonoBehaviour
     public GameObject pl;
     public GameObject floor;
 
-    void OnTriggerEnter()
+
+    private void OnCollisionEnter(Collision pe)
     {
 
-        if (floor.gameObject.tag == "floor")
-        {
+
             pl.SendMessage("isGrounded");
 
-        }
+
 
     }
 
-    private void OnTriggerExit()
+    private void OnCollisionExit(Collision pe)
     {
-        pl.SendMessage("isNotGrounded");
+
+            print("saiu");
+            pl.SendMessage("isNotGrounded");
+
     }
 
 }

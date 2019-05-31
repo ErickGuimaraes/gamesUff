@@ -73,8 +73,9 @@ public class PLayer2Controller : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && (upSpeed == 0))
         {
-            
+
             isNotGrounded();
+            upSpeed = jumpSpeed;
         }
         
         if (grd == false)
@@ -141,7 +142,7 @@ public class PLayer2Controller : MonoBehaviour {
     private void isNotGrounded()
     {
         grd = false;
-        upSpeed = jumpSpeed;
+        
     }
 
    
