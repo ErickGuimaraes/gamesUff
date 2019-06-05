@@ -7,12 +7,30 @@ public class ZombieDeath : MonoBehaviour
     public GameObject zombie;
     public GameObject shot;
 
+    
     private void OnTriggerEnter2D(Collider2D col)
     {
         print("ai pai para");
         Destroy(col.gameObject);
-        Destroy(zombie);
+        if (col.gameObject.tag == "tr1")
+        {
+            Destroy(zombie);
+        }
     }
+    
+    /*
+    private void OnCollisionEnter(Collision coll)
+    {
+        if (coll.gameObject.name == "tiro")
+        {
+            
+            
+            Destroy(zombie);
+        }
+
+
+    }
+    */
     // Start is called before the first frame update
     void Start()
     {
