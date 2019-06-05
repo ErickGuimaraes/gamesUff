@@ -12,8 +12,4 @@ public class Tiro : MonoBehaviour
     void moveTiro(){
         transform.Translate(0, (-velocidade * Time.deltaTime), 0);
     }
-
-    void onTriggerEnter(Collider other){
-        
-    }
 }
