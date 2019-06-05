@@ -10,7 +10,6 @@ public class ZombieDeath : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        print("ai pai para");
         Destroy(col.gameObject);
         if (col.gameObject.tag == "tr1")
         {
