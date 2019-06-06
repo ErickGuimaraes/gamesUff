@@ -12,9 +12,10 @@ public class Player1Death : MonoBehaviour
 
         if(col.gameObject.tag == "tiroZumbi"){
 
-            //player.SendMessage("dano");
-            PlayerController.dano();
-           
+            player.SendMessage("dano");
+            player.SendMessage("getHP");
+
+
         }
     }
 

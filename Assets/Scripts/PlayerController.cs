@@ -70,10 +70,8 @@ public class PlayerController : MonoBehaviour
         hp--;
     }
 
-    public int getHP(){
-        return hp;
-    }
-    public void setHP(int valor){
-        hp = valor;
+    public void getHP(){
+        print(hp);
+        //return hp;
     }
 }
