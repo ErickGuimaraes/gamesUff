@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PLayer2Controller : MonoBehaviour {
 
     private Vector3 Npos;
@@ -16,6 +16,9 @@ public class PLayer2Controller : MonoBehaviour {
     public float Shot2Release;
     public float Shot3Release;
     public float jumpSpeed;
+    public float hp;
+
+    public GameObject camera;
 
     private Rigidbody rb; 
 
@@ -38,22 +41,32 @@ public class PLayer2Controller : MonoBehaviour {
         upSpeed = 0;
         //grd = true;
         rb.freezeRotation = true;
+   
 
 
     }
 
     void Update()
     {
-       
+
+        if (hp <= 0) {
+
+            SceneManager.LoadScene("game over");
+
+        }
 
         if (Input.GetKey(KeyCode.LeftArrow) && (speed < MaxSpeed))
         {
             speed = speed - Acceleration * Time.deltaTime;
+            //Quaternion rot = new Quaternion(0, -camera.transform.rotation.y, 0, 1) ;
+            //gameObject.transform.rotation = rot;
 
         }
         else if (Input.GetKey(KeyCode.RightArrow) && (speed > -MaxSpeed))
         {
             speed = speed + Acceleration * Time.deltaTime;
+            //Quaternion rot = new Quaternion(0, -camera.transform.rotation.y, 0, 1);
+           //gameObject.transform.rotation = rot;
         }
         else
         {
@@ -90,6 +103,8 @@ public class PLayer2Controller : MonoBehaviour {
         Vector3 v = new Vector3(gameObject.transform.position.x + speed * Time.deltaTime, gameObject.transform.position.y + upSpeed*Time.deltaTime, gameObject.transform.position.z);
 
         gameObject.transform.position = v;
+        Vector3 camV = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -37);
+       camera.transform.position = camV;
 
         if (!bulletCheck)
         {
@@ -145,5 +160,13 @@ public class PLayer2Controller : MonoBehaviour {
         
     }
 
+
+    private void dano() {
+        hp--;
+    }
+
+    public void getHP() {
+        print(hp);
+    }
    
 }

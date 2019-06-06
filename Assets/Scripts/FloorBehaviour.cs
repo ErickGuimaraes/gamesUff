@@ -11,19 +11,27 @@ public class FloorBehaviour : MonoBehaviour
     private void OnCollisionEnter(Collision pe)
     {
 
+    
+        if (pe.gameObject.tag == "pe")
+        {
 
+            print("AHAHAHAHA");
             pl.SendMessage("isGrounded");
 
 
-
+        }
     }
 
     private void OnCollisionExit(Collision pe)
     {
 
-            print("saiu");
+        if (pe.gameObject.tag == "pe")
+        {
             pl.SendMessage("isNotGrounded");
+            print("saiu");
 
+
+        }
     }
 
 }

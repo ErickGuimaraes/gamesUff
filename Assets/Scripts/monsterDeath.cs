@@ -2,19 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieDeath : MonoBehaviour
+public class monsterDeath : MonoBehaviour
 {
+
     public GameObject zombie;
     public GameObject shot;
 
     
-    private void OnTriggerEnter2D(Collider2D col)
+
+    private void OnCollisionEnter(Collision col)
     {
-        Destroy(col.gameObject);
+      
+        
         if (col.gameObject.tag == "tr1")
         {
+            Destroy(col.gameObject);
+            print(col.gameObject.name);
             Destroy(zombie);
         }
     }
-    
 }

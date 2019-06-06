@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement; 
 
 
-public class SceneManager : MonoBehaviour
+public class SceneChanger : MonoBehaviour
 {
     public string scn;
 
     public void onClick()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(scn, LoadSceneMode.Single);
+        SceneManager.LoadScene(scn, LoadSceneMode.Single);
     }
 }

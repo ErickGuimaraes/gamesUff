@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if(hp == 0){
-            UnityEngine.SceneManagement.SceneManager.LoadScene("game over");
+            gameOver();
         }
         
         if (Input.GetKey(KeyCode.UpArrow)){
@@ -77,5 +77,10 @@ public class PlayerController : MonoBehaviour
     public void getHP(){
         print(hp);
         //return hp;
+    }
+
+    public void gameOver() {
+
+        SceneManager.LoadScene("Game Over");
     }
 }
