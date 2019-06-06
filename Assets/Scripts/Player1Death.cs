@@ -8,15 +8,14 @@ public class Player1Death : MonoBehaviour
     public GameObject shot;
 
     private void OnTriggerEnter2D(Collider2D col){
-        Destroy(col.gameObject);
-
+        
         if(col.gameObject.tag == "tiroZumbi"){
 
             player.SendMessage("dano");
             player.SendMessage("getHP");
+            Destroy(col.gameObject);
 
-
-        }
+        }//else if(col.player)
     }
 
     void Start(){
