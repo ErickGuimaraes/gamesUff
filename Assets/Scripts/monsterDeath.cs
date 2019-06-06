@@ -12,8 +12,7 @@ public class monsterDeath : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-      
-        
+
         if (col.gameObject.tag == "tr1")
         {
             Destroy(col.gameObject);

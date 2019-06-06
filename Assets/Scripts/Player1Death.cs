@@ -7,9 +7,12 @@ public class Player1Death : MonoBehaviour
     public GameObject player;
     public GameObject shot;
 
-    private void OnTriggerEnter2D(Collider2D col){
-        
-        if(col.gameObject.tag == "tiroZumbi"){
+
+    private void OnCollisionEnter(Collision col)
+    {
+        Debug.Log(col.gameObject.tag);
+        if (col.gameObject.tag == "tiroZumbi")
+        {
 
             player.SendMessage("dano");
             player.SendMessage("getHP");
@@ -18,11 +21,4 @@ public class Player1Death : MonoBehaviour
         }//else if(col.player)
     }
 
-    void Start(){
-
-    }
-
-    void Update(){
-        
-    }
 }
