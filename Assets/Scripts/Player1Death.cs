@@ -9,8 +9,11 @@ public class Player1Death : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col){
         Destroy(col.gameObject);
+
         if(col.gameObject.tag == "tiroZumbi"){
-            Destroy(player);
+
+            Debug.Log("ESTOU PERDENDO VIIIIIIDDDDAAAAAAA");
+           
         }
     }
 
