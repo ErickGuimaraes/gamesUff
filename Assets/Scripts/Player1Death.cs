@@ -12,7 +12,8 @@ public class Player1Death : MonoBehaviour
 
         if(col.gameObject.tag == "tiroZumbi"){
 
-            Debug.Log("ESTOU PERDENDO VIIIIIIDDDDAAAAAAA");
+            //player.SendMessage("dano");
+            PlayerController.dano();
            
         }
     }

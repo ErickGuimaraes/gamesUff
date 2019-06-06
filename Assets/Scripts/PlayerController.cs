@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public int hp;
     public float velocidade;
     public GameObject tiro;
     public GameObject pos;
@@ -63,5 +64,16 @@ public class PlayerController : MonoBehaviour
     }
     void atira(){
         Instantiate(tiro, pos.transform.position, tiro.transform.rotation);
+    }
+
+    public void dano(){
+        hp--;
+    }
+
+    public int getHP(){
+        return hp;
+    }
+    public void setHP(int valor){
+        hp = valor;
     }
 }
