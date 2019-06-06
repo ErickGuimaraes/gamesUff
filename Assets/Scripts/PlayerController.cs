@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        if(hp == 0){
+            UnityEngine.SceneManagement.SceneManager.LoadScene("game over");
+        }
         
         if (Input.GetKey(KeyCode.UpArrow)){
             MoveCima();
