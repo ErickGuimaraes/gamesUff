@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public GameObject pos;
     public float rajada;
     public float xmin, ymin, ymax;
+    public int killsToBoss;
     private bool shootTimer;
     private float timer;
     private int contKills;
@@ -57,7 +58,7 @@ public class PlayerController : MonoBehaviour
             timer = 0;
         }
 
-        if (contKills >= 10) {
+        if (contKills >= killsToBoss) {
             Debug.Log("NASCI BOSS");
             Boss.SendMessage("Spawn");
             contKills = -20;
@@ -82,6 +83,10 @@ public class PlayerController : MonoBehaviour
 
     public void dano(){
         hp--;
+    }
+
+    public void danoBoss(){
+        hp = hp - 3;
     }
 
     public void getHP(){
