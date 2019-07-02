@@ -13,11 +13,15 @@ public class PlayerController : MonoBehaviour
     public float xmin, ymin, ymax;
     private bool shootTimer;
     private float timer;
+    private int contKills;
+    public GameObject Boss;
     
     void Start()
     {
         shootTimer = false;
         timer = 0;
+        contKills = 0;
+        Boss = GameObject.FindGameObjectWithTag("boss");
     }
     void Update()
     {
@@ -52,6 +56,12 @@ public class PlayerController : MonoBehaviour
             shootTimer = false;
             timer = 0;
         }
+
+        if (contKills >= 10) {
+            Debug.Log("NASCI BOSS");
+            Boss.SendMessage("Spawn");
+            contKills = -20;
+        }
     }
 
     void MoveCima(){
@@ -82,5 +92,9 @@ public class PlayerController : MonoBehaviour
     public void gameOver() {
 
         SceneManager.LoadScene("Game Over");
+    }
+
+    public void increaseKills() {
+        contKills++;
     }
 }
