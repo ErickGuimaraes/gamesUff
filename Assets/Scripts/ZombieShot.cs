@@ -6,7 +6,7 @@ public class ZombieShot : MonoBehaviour
 {
     public GameObject tiro;
     public GameObject pos;
-    public float velocidade;
+    public float shotRate;
     private bool shootTimer;
     private float timer;
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class ZombieShot : MonoBehaviour
         }
 
         timer += Time.deltaTime;
-        if(timer > 0.7){
+        if(timer > shotRate){
             shootTimer = false;
             timer = 0;
         }
