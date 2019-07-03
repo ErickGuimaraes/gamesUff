@@ -8,8 +8,8 @@ public class BossController : MonoBehaviour
     public GameObject direita;
     public GameObject esquerda;
     public float velocidade;
-    float limiteSup = -1;
-    float limiteInf = 1;
+    float limiteSup = -1.0f;
+    float limiteInf = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,6 @@ public class BossController : MonoBehaviour
     }
 
     void move(){
-        boss.transform.Translate(0, (-velocidade * Time.deltaTime), 0);
+        boss.transform.Translate((velocidade * Time.deltaTime), 0, 0);
     }
 }
