@@ -8,21 +8,32 @@ public class BossController : MonoBehaviour
     public GameObject direita;
     public GameObject esquerda;
     public float velocidade;
-    float limiteSup = -1.0f;
-    float limiteInf = 1.0f;
+    public float limiteSup;
+    public float limiteInf;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        move();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(direita.transform.position.x <= limiteSup || esquerda.transform.position.x >= limiteInf){
+        print(limiteSup);
+        print(direita.transform.position);
+
+        if (direita.transform.position.y <= limiteSup){
+
             velocidade = velocidade * -1;
         }
+
+        if (esquerda.transform.position.y >= limiteInf) {
+            
+            velocidade = velocidade * -1;
+        }
+
         move();
     }
 
