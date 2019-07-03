@@ -10,7 +10,8 @@ public class Player1Death1 : MonoBehaviour
    
     private void OnTriggerEnter(Collider col){
 
-        print("AAAAssteste");
+
+        Debug.Log(col.name + "NAOMEMOMAODMS");
 
         if(col.gameObject.tag == "tiroZumbi"){
             
@@ -18,15 +19,8 @@ public class Player1Death1 : MonoBehaviour
             player.SendMessage("dano");
             player.SendMessage("getHP");
 
-
         }
-    }
-
-    void Start(){
 
     }
 
-    void Update(){
-        
-    }
 }

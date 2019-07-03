@@ -51,7 +51,7 @@ public class PLayer2Controller : MonoBehaviour {
 
         if (hp <= 0) {
 
-            SceneManager.LoadScene("game over");
+            death();
 
         }
 
@@ -168,5 +168,12 @@ public class PLayer2Controller : MonoBehaviour {
     public void getHP() {
         print(hp);
     }
-   
+
+    public void death()
+    {
+
+        SceneManager.LoadScene("game over");
+
+    }
+
 }
