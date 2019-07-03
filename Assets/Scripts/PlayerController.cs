@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject player;
     public int hp;
     public float velocidade;
     public GameObject tiro;
@@ -31,15 +32,21 @@ public class PlayerController : MonoBehaviour
         }
         
         if (Input.GetKey(KeyCode.UpArrow)){
-            MoveCima();
+            if(player.transform.position.y < ymax){
+                MoveCima();
+            }
         }
 
         if (Input.GetKey(KeyCode.DownArrow)){
-            MoveBaixo();
+            if(player.transform.position.y > ymin){
+                MoveBaixo();
+            }
         }
         
         if(Input.GetKey(KeyCode.LeftArrow)){
-            MoveEsquerda();
+            if(player.transform.position.x > xmin){
+                MoveEsquerda();
+            }
         }
 
         if(Input.GetKey(KeyCode.RightArrow)){
