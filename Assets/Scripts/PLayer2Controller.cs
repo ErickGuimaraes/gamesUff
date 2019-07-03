@@ -84,16 +84,18 @@ public class PLayer2Controller : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && (upSpeed == 0))
+        if (Input.GetKeyDown(KeyCode.UpArrow) )//&& (upSpeed == 0))
         {
-
-            isNotGrounded();
             upSpeed = jumpSpeed;
+            Vector3 extraGravityForce = (Physics.gravity * upSpeed) - Physics.gravity;
+            rb.AddForce(extraGravityForce);
+            //isNotGrounded();
+           // upSpeed = jumpSpeed;
         }
         
         if (grd == false)
         {
-            upSpeed -= Gravity * Time.deltaTime;
+            //upSpeed -= Gravity * Time.deltaTime;
 
         }
         else {
