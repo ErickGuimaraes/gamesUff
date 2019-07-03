@@ -24,6 +24,14 @@ public class Player1Death : MonoBehaviour
             player.SendMessage("getHP");
             Destroy(col.gameObject);
         }
+        if(col.gameObject.tag == "zmb"){
+            player.SendMessage("dano");
+            player.SendMessage("getHP");
+        }
+        if (col.gameObject.tag == "boss"){
+            player.SendMessage("danoBoss");
+            player.SendMessage("getHP");
+        }
     }
 
 }

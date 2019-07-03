@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        if(hp == 0){
+        if(hp <= 0){
             gameOver();
         }
         
