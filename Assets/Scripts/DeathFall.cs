@@ -9,7 +9,7 @@ public class DeathFall : MonoBehaviour
     public GameObject player;
 
 
-    private void OnTriggerEnter(Collider col)
+    private void OnCollisionEnter(Collision col)
     {
 
         Debug.Log("VAi se fuder ww");

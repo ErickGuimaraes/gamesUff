@@ -102,7 +102,8 @@ public class PLayer2Controller : MonoBehaviour {
 
         Vector3 v = new Vector3(gameObject.transform.position.x + speed * Time.deltaTime, gameObject.transform.position.y + upSpeed*Time.deltaTime, gameObject.transform.position.z);
 
-        gameObject.transform.position = v;
+        rb.AddForce(Input.GetAxis("Horizontal")*speed* speed * Time.deltaTime, 0f,0f);
+       //gameObject.transform.position = v;
         Vector3 camV = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -37);
        camera.transform.position = camV;
 
