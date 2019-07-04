@@ -10,7 +10,10 @@ public class TiroInimigo1 : MonoBehaviour
         moveTiro();
     }
 
-    void moveTiro(){
-        transform.Translate(0,(velocidade * Time.deltaTime),0);
+    void moveTiro() {
+        if (gameObject.transform.eulerAngles.z == 90)
+           transform.Translate(0, (velocidade * Time.deltaTime), 0);
+        else if (gameObject.transform.eulerAngles.z == 270)
+            transform.Translate(0, (-velocidade * Time.deltaTime), 0);
     }
 }

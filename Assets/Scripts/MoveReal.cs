@@ -60,6 +60,13 @@ public class MoveReal : MonoBehaviour
         }
         Vector3 mov = Vector3.zero;//  new Vector3(0,verticalVelocity,0);
         mov.x = Input.GetAxis("Horizontal") * speed;
+        if (Input.GetKeyDown(KeyCode.A)) {
+            gameObject.transform.eulerAngles = new Vector3(0, 270, 0);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            gameObject.transform.eulerAngles = new Vector3(0, 90, 0);
+        }
         mov.y = verticalVelocity;
         mov.z = 0f;// Input.GetAxis("Vertical");
         ctrl.Move(mov * Time.deltaTime);
@@ -71,8 +78,22 @@ public class MoveReal : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
-
-                GameObject.Instantiate(shot, pos.transform.position, shot.transform.rotation);
+                if (gameObject.transform.eulerAngles.y == 90)
+                {
+                    Vector3 rot = gameObject.transform.eulerAngles;
+                    rot = new Vector3(rot.x, rot.y, rot.z);
+                    Debug.Log(rot);
+                    GameObject.Instantiate(shot, pos.transform.position, shot.transform.rotation);
+                }
+                else if (gameObject.transform.eulerAngles.y == 270)
+                {
+                    Debug.Log("estou aqui");
+                    Vector3 rot = shot.transform.eulerAngles;
+                    rot = new Vector3(rot.x, rot.y, rot.z+180);
+                    Debug.Log(rot);
+            
+                    GameObject.Instantiate(shot, pos.transform.position, Quaternion.Euler(rot));
+                }
                 bulletCheck = true;
                 contPU += Time.deltaTime;
             }

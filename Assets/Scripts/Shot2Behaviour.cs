@@ -19,8 +19,22 @@ public class Shot2Behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 v = new Vector3(gameObject.transform.position.x + speed, gameObject.transform.position.y, gameObject.transform.position.z);
-        gameObject.transform.position = v;
+
+        if (gameObject.transform.eulerAngles.z == 90)
+        {
+            Vector3 v = new Vector3(gameObject.transform.position.x + speed, gameObject.transform.position.y, gameObject.transform.position.z);
+            gameObject.transform.position = v;
+        }
+        //transform.Translate(0, gameObject.transform.position.y + (speed * Time.deltaTime), 0);
+        else if (gameObject.transform.eulerAngles.z == 270)
+        {
+            Vector3 v = new Vector3(gameObject.transform.position.x - speed, gameObject.transform.position.y, gameObject.transform.position.z);
+            gameObject.transform.position = v;
+        }
+        //transform.Translate(0, gameObject.transform.position.y + (-speed * Time.deltaTime), 0);
+
+        //Vector3 v = new Vector3(gameObject.transform.position.x + speed, gameObject.transform.position.y, gameObject.transform.position.z);
+        //  gameObject.transform.position = v;
 
         del += Time.deltaTime;
 
