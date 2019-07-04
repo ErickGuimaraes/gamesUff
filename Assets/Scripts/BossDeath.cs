@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossDeath : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class BossDeath : MonoBehaviour
             print(col.gameObject.name);
             if(life == 0){
                 Destroy(boss);
+                SceneManager.LoadScene("level 2");
+
             }
         }
     }
