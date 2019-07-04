@@ -11,16 +11,27 @@ public class Player1Death1 : MonoBehaviour
     private void OnTriggerEnter(Collider col){
 
 
-        Debug.Log(col.name + "NAOMEMOMAODMS");
-
         if(col.gameObject.tag == "tiroZumbi"){
-            
+
+            Debug.Log(col.name + "NAOMEMOMAODMS");
+
             Destroy(col.gameObject);
             player.SendMessage("dano");
             player.SendMessage("getHP");
 
         }
 
+        if (col.gameObject.tag == "deathB")
+        {
+
+            Debug.Log(col.name + "NAOMEMOMAODMS");
+
+            Destroy(col.gameObject);
+            player.SendMessage("dano");
+            player.SendMessage("getHP");
+
+
+        }
     }
 
 }

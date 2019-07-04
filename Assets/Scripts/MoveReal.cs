@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveReal : MonoBehaviour
 {
     private CharacterController ctrl;
 
-    private float verticalVelocity;
-    private float gravity = 14f;
-    private float jumpforce = 10f;
+    public float verticalVelocity;
+    public float gravity = 14f;
+    public float jumpforce = 10f;
     public int speed;
+
+    public float hp;
 
     private Rigidbody rb;
     private bool bulletCheck;
@@ -27,19 +30,21 @@ public class MoveReal : MonoBehaviour
     public float Shot3Release;
 
     public GameObject camera;
-
-
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
         bulletCheck = false;
         ctrl = GetComponent<CharacterController>();
         rb.freezeRotation = true;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 pp = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -37);
+        camera.transform.position = pp;
+
         if (ctrl.isGrounded)
         {
 
@@ -58,7 +63,8 @@ public class MoveReal : MonoBehaviour
         mov.y = verticalVelocity;
         mov.z = 0f;// Input.GetAxis("Vertical");
         ctrl.Move(mov * Time.deltaTime);
-        camera.transform.position = (mov * Time.deltaTime);
+        if (mov.z < -1)  mov.z = -1;
+     //   camera.transform.position = (mov * Time.deltaTime);
 
 
         if (!bulletCheck)
@@ -103,6 +109,21 @@ public class MoveReal : MonoBehaviour
             del = 0;
         }
 
+    }
+    private void dano()
+    {
+        hp--;
+    }
+
+    public void getHP()
+    {
+        print(hp);
+    }
+
+    public void death()
+    {
+
+        SceneManager.LoadScene("game over");
 
     }
 }

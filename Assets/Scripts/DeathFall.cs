@@ -12,11 +12,10 @@ public class DeathFall : MonoBehaviour
     private void OnCollisionEnter(Collision col)
     {
 
-        Debug.Log("VAi se fuder ww");
         
         if (col.gameObject.tag == "player")
         {
-            Debug.Log("MEU CU ");
+
             player.SendMessage("death");
 
 

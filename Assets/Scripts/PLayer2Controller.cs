@@ -41,9 +41,6 @@ public class PLayer2Controller : MonoBehaviour {
         upSpeed = 0;
         //grd = true;
         rb.freezeRotation = true;
-   
-
-
     }
 
     void Update()
