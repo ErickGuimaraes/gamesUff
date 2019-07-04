@@ -14,6 +14,8 @@ public class SpawnLv2 : MonoBehaviour
             rot = new Vector3(-90, -90, 0);
             // Vector3 v = (transform.position.pos.x, pos.y, pos.z) ;
             Instantiate(monster, pos.transform.position, Quaternion.Euler(rot)) ;
+            Rigidbody rb = monster.GetComponent<Rigidbody>();
+            rb.freezeRotation = true;
             Destroy(gameObject);
         }
     }
