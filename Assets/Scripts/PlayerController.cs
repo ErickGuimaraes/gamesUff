@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -70,6 +71,13 @@ public class PlayerController : MonoBehaviour
             Boss.SendMessage("Spawn");
             contKills = -20;
         }
+
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+
+
     }
 
     void MoveCima(){

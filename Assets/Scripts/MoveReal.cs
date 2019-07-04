@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MoveReal : MonoBehaviour
 {
@@ -76,7 +77,7 @@ public class MoveReal : MonoBehaviour
 
         if (!bulletCheck)
         {
-            if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 if (gameObject.transform.eulerAngles.y == 90)
                 {
@@ -134,6 +135,11 @@ public class MoveReal : MonoBehaviour
             death();
         }
 
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+
     }
     private void dano()
     {
@@ -153,7 +159,7 @@ public class MoveReal : MonoBehaviour
     public void death()
     {
 
-        SceneManager.LoadScene("game over");
+        SceneManager.LoadScene("level 2");
 
     }
 }
