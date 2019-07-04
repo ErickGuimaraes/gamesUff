@@ -21,6 +21,8 @@ public class Health1 : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
+        print(col);
+        print("entrei");
         if (col.gameObject.tag == ("tiroZumbi")) { if (health > 0) {
                 print("aaaa");
                 health = health - 10;

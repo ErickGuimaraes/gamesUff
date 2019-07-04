@@ -106,7 +106,7 @@ public class MoveReal : MonoBehaviour
         {
             contPU += Time.deltaTime;
         }
-        if (Input.GetKeyUp(KeyCode.C))
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
 
             if (contPU > Shot2Release && contPU < Shot3Release)

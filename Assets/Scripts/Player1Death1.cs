@@ -8,7 +8,8 @@ public class Player1Death1 : MonoBehaviour
     public GameObject shot;
 
 
-    private void OnTriggerEnter(Collider col)
+    //private void OnC OnTriggerEnter(Collider col)
+    private void OnCollisionEnter(Collision col)
     {
 
 
