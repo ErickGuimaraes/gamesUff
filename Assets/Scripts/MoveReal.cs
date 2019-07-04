@@ -129,11 +129,20 @@ public class MoveReal : MonoBehaviour
             bulletCheck = false;
             del = 0;
         }
+        if (hp <= 0)
+        {
+            death();
+        }
 
     }
     private void dano()
     {
-        hp--;
+        hp -= 10;
+    }
+
+    public void danoBoss()
+    {
+        hp = hp - 25;
     }
 
     public void getHP()
