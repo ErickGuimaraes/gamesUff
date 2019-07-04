@@ -89,11 +89,11 @@ public class PlayerController : MonoBehaviour
     }
 
     public void dano(){
-        hp -= 10;
+        hp -= 5;
     }
 
     public void danoBoss(){
-        hp = hp - 25;
+        hp = hp - 15;
     }
 
     public void getHP(){

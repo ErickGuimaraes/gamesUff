@@ -25,9 +25,9 @@ public class Health1 : MonoBehaviour
         print("entrei");
         if (col.gameObject.tag == ("tiroZumbi")) { if (health > 0) {
                 print("aaaa");
-                health = health - 10;
+                health = health - 5;
             }
         }
-        if (col.gameObject.tag == ("tiroBoss")) { if (health > 0) health = health - 25; }
+        if (col.gameObject.tag == ("tiroBoss")) { if (health > 0) health = health - 15; }
     }
 }

@@ -25,7 +25,7 @@ public class ZombieShot1 : MonoBehaviour
         }
 
         timer += Time.deltaTime;
-        if(timer > 1.7){
+        if(timer > 2){
             shootTimer = false;
             timer = 0;
         }
