@@ -21,15 +21,15 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(limiteSup);
-        print(direita.transform.position);
 
         if (direita.transform.position.y <= limiteSup){
+            Debug.Log(esquerda.transform.position.y);
 
             velocidade = velocidade * -1;
         }
 
         if (esquerda.transform.position.y >= limiteInf) {
+            Debug.Log(esquerda.transform.position.y);
             
             velocidade = velocidade * -1;
         }

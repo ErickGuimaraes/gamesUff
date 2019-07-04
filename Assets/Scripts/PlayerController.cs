@@ -31,28 +31,28 @@ public class PlayerController : MonoBehaviour
             gameOver();
         }
         
-        if (Input.GetKey(KeyCode.UpArrow)){
+        if (Input.GetKey(KeyCode.W)){
             if(player.transform.position.y < ymax){
                 MoveCima();
             }
         }
 
-        if (Input.GetKey(KeyCode.DownArrow)){
+        if (Input.GetKey(KeyCode.S)){
             if(player.transform.position.y > ymin){
                 MoveBaixo();
             }
         }
         
-        if(Input.GetKey(KeyCode.LeftArrow)){
+        if(Input.GetKey(KeyCode.A)){
             if(player.transform.position.x > xmin){
                 MoveEsquerda();
             }
         }
 
-        if(Input.GetKey(KeyCode.RightArrow)){
+        if(Input.GetKey(KeyCode.D)){
             MoveDireita();
         }
-        if(Input.GetKey(KeyCode.C)){
+        if(Input.GetKey(KeyCode.Mouse0)){
             if(shootTimer == false){
                 atira();
                 shootTimer = true;
@@ -89,11 +89,11 @@ public class PlayerController : MonoBehaviour
     }
 
     public void dano(){
-        hp--;
+        hp -= 10;
     }
 
     public void danoBoss(){
-        hp = hp - 3;
+        hp = hp - 25;
     }
 
     public void getHP(){
